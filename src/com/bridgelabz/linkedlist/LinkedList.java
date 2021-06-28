@@ -10,10 +10,12 @@ public class LinkedList {
 		Node<Integer>myThirdNode = new Node<>(70);
 		
 		// linked to one node to another node  
-		operations.addNode(myFirstNode);
-		operations.addNode(myThirdNode);
+		operations.addNodeInBeginning(myFirstNode);
+		operations.addNodeAtEnd(myThirdNode);
 		operations.addNodeInMiddle(mySecondNode);
 		
+		operations.displayNode();
+		operations.deleteNodeFromBeginning();
 		operations.displayNode();
 		
 		}
