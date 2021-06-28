@@ -68,17 +68,33 @@ public class LinkedListOperations {
         }
         size--;
     }
+    public void searchElement() {
+        if(head == null)
+            System.out.println("Linked List is empty");
+        else{
+            INode currentNode = head;
+            int position = 0;
+            while (currentNode != null){
+                position++;
+                if(currentNode.getKey().equals(30)){
+                    System.out.println("Key value 30 is present at position "+position+" in list");
+                }
+                currentNode = currentNode.getNext();
+            }
+        }
+    }
 
     public void displayNode() {
         INode current = head;
-        if (head == null)
+        if(head == null)
             System.out.println("Linked List is empty");
-        System.out.print("Nodes are: ");
+        System.out.print("Nodes are: " );
         while (current != null) {
-            if (current.getNext() != null) {
+            if(current.getNext() != null) {
                 System.out.print(current.getKey() + " -> ");
                 current = current.getNext();
-            } else {
+            }
+            else {
                 System.out.println(current.getKey());
                 current = current.getNext();
             }
