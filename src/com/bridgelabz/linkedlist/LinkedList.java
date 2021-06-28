@@ -11,10 +11,9 @@ public class LinkedList {
 		
 		// linked to one node to another node  
 		operations.addNode(myFirstNode);
-		
-		operations.addNode(mySecondNode);
-	
 		operations.addNode(myThirdNode);
+		operations.addNodeInMiddle(mySecondNode);
+		
 		operations.displayNode();
 		
 		}

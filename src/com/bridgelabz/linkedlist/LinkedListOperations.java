@@ -2,35 +2,58 @@ package com.bridgelabz.linkedlist;
 
 public class LinkedListOperations {
 	//Represent the head and tail of the singly linked list
-    public Node head = null;
-    public Node tail = null;
+	Node head;
+	Node tail;
+	int size;
 
-    public Node addNode(Node newNode) {
-        if (head == null) {
-            head = newNode;
-            tail = newNode;
-        }
-        else {
-            tail.next = newNode;
-            tail = newNode;
-        }
-        return head;
-    }
-    public void displayNode() {
-        INode current = head;
-        if(head == null)
-            System.out.println("Linked List is empty");
-        System.out.print("Nodes are: " );
-        while (current != null) {
-            if(current.getNext() != null) {
-                System.out.print(current.getKey() + " -> ");
-                current = current.getNext();
-            }
-            else {
-                System.out.println(current.getKey());
-                current = current.getNext();
-            }
-        }
-    }
-	
+	// add Node
+	public void addNode(Node newNode) {
+		if (head == null) {
+			head = newNode;
+			tail = newNode;
+		}
+		else {
+			tail.next = newNode;
+			tail = newNode;
+		}
+		size++;
+	}
+
+	// adding node between node
+	public void addNodeInMiddle(Node newNode) {
+		if(head == null) {
+			head = newNode;
+			tail = newNode;
+		} else {
+			INode temp, current;
+			int count = (size % 2 == 0) ? (size / 2) : ((size + 1) / 2);
+			temp = head;
+			current = null;
+			for(int i = 0; i < count; i++) {
+				current = temp;
+				temp = temp.getNext();
+			}
+			current.setNext(newNode);
+			newNode.setNext(temp);
+		}
+		size++;
+	}
+
+	// display node
+	public void displayNode() {
+		INode current = head;
+		if(head == null)
+			System.out.println("Linked List is empty");
+		System.out.print("Nodes are: " );
+		while (current != null) {
+			if(current.getNext() != null) {
+				System.out.print(current.getKey() + " -> ");
+				current = current.getNext();
+			}
+			else {
+				System.out.println(current.getKey());
+				current = current.getNext();
+			}
+		}
+	}
 }
